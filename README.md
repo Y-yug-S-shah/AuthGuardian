@@ -28,8 +28,6 @@ and generating incident reports—all without manual intervention.
 it. This ensures compliance and knowledge sharing within the team.
 
 ## What did I learn and do?
-To demonstrate the real impact of AuthGuardian, here are some quantified achievements and
-the reasoning behind them:
 - Analyzed 1,000+ Daily Authentication Events.
 - Detected and Investigated 5 Brute Force attempts in a day, this figure is based on the frequency of suspicious activity in my test
 environment. It demonstrates my capability to identify and respond to threats, even at scale.
