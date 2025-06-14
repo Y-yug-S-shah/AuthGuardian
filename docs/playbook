@@ -1,0 +1,48 @@
+1. Respond to Brute Force Login Attempts
+
+ 1.1 Purpose:
+  Outlines steps to respond to multiple failed login attempts from a single IP or user, indicating a
+  potential brute force attack.
+
+ 1.2 Steps:
+  1.2.1 Alert Trigger:
+   - Splunk detects 5 failed logins from an IP or user within 10 minutes.
+   - Automated alert is sent to the SOC analyst.
+  1.2.2 Initial Triage:
+   - Review the Splunk dashboard for context.
+   - Check if the IP or user is known or whitelisted.
+  1.2.3 Investigation:
+   - Run a Splunk query to gather all relevant login events.
+   - Check threat intelligence feeds for IP reputation.
+  1.2.4 Containment:
+   - Block the suspicious IP in the firewall.
+   - Reset the password for the targeted user account.
+  1.2.5 Notification:
+   - Notify the account owner and the security team.
+   - Update the incident log.
+  1.2.6 Post-Incident Review:
+   - Document the incident and lessons learned.
+   - Adjust detection rules or whitelists if needed
+
+
+2. Handling False Positive Alerts for Service Accounts
+ 
+ 2.1 Purpose:
+  Guides the response to repeated failed logins by service accounts, which are often false positives.
+ 
+ 2.2Steps:
+  2.2.1 Alert Trigger:
+   - Splunk detects repeated failed logins by a service account (e.g., service_acc).
+   - Automated alert is sent to the SOC analyst.
+  2.2.2 Initial Triage:
+   - Review the Splunk dashboard for context.
+   - Check if the service account is used for legitimate automated tasks.
+  2.2.3 Investigation:
+   - Note that repeated failures could be due to an outdated password in a backup script.
+   - Forward the incident to the appropriate team for further review and possible whitelisting.
+  2.2.4 Documentation:
+   - Document the incident and the resolution.
+   - Share findings with the relevant team.
+  2.2.5 Post-Incident Review:
+   - Monitor for similar issues.
+   - Adjust detection rules or whitelists as needed
