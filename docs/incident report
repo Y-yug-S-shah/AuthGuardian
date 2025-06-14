@@ -1,0 +1,27 @@
+1. Brute Force Attack Detection
+Date: June 14, 2025
+Analyst: Yug Shah
+Incident Title: Multiple Failed Logins from Suspicious IP
+Description:
+While reviewing the AuthGuardian Splunk dashboard, I noticed a spike in failed login attempts. The logs showed multiple authentication failures from the IP address 192.168.1.123 targeting the user "sam_dev" over a 10-minute window. This pattern matched known brute force attack behavior.
+Investigation Steps:
+I ran a Splunk query to extract all login attempts from this IP and user. The query revealed 15 failed attempts and no successful logins. I cross-referenced the IP with our internal whitelist and threat intelligence feeds—no prior legitimate activity was found.
+Action Taken:
+I immediately blocked the IP in our firewall and reset the password for the "sam_dev" account as a precaution. I also updated the incident log and notified the account owner via email.
+Conclusion:
+The incident was contained before any unauthorized access occurred. The automated alert worked as intended, and manual review confirmed the threat.
+Status: Resolved
+
+2. False Positive Alert for Service Account
+Date: June 13, 2025
+Analyst: Yug Shah
+Incident Title: Repeated Failed Logins for Service Account
+Description:
+An automated alert triggered for repeated failed logins by the service account "service_acc". The logs showed 8 failed attempts within an hour, all from an internal server IP.
+Investigation Steps:
+I checked the service account activity and found it was used for scheduled backups. The failures could be due to an outdated password in the backup script.
+Action Taken:
+This incident was forwarded to the further team for checking with whitelisting and updating credentials.
+Conclusion:
+This was likely a false positive due to an outdated password in the backup script. No security threat was identified.
+Status: Forwarded for Further Review
