@@ -1,5 +1,13 @@
-##Bruteforce Detection
-index=main source="samLogs. log" "authentication failed"
-stats count by user, rhost, _time
-timechart span=5m count by user
+1. Bruteforce Detection
+index=main source="samLogs.log" "authentication failed"
+| stats count by user, rhost, _time
+| timechart span=5m count by user
 
+2. Identify False Positives
+index=main source="samLogs.log" user="service_account" "authentication failed"
+| stats count by _time
+
+3. Most failed login attempts
+index=main source="samLogs.log" "authentication failed"
+| rex "rhost=(?<rhost>\S+)"
+| top limit=10 rhost
