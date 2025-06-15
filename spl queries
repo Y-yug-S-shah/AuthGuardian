@@ -1,1 +1,5 @@
-Add queries here!!!
+##Bruteforce Detection
+index=main source="samLogs. log" "authentication failed"
+stats count by user, rhost, _time
+timechart span=5m count by user
+
